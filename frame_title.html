@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top 10 Delicacies</title>
     <style>
+        
         body {
             overflow: hidden;
             background-image: url("skibidi.jpg");
@@ -64,27 +65,37 @@
     </style>
 </head>
 <body>
+    
     <nav>
         <ul>
-            <li><a href="frame.html" target="display">Home</a></li>
-            <li><a href="frame_about.html" target="display">About</a></li>
-            <li><a href="frame_contact.html" target="display" class="con">Contact</a></li>
+            <li><a href="frame.html" onclick="navigateTo('frame.html'); return false;">Home</a></li>
+            <li><a href="#about" onclick="navigateTo('frame_about.html'); return false;">About</a></li>
+            <li><a href="#contact" onclick="navigateTo('frame_contact.html'); return false;" class="con">Contact</a></li>
         </ul>
     </nav>
-    
+     
     <frameset rows="30%,*" frameborder="0">
         <frame name="frame_title" src="frame_title.html">
         <frameset cols="25%,*" frameborder="0">
             <frame name="frame_menu" src="frame_menu.html">
-            <frame name="display" src="frame_ChickenInasal.html">
+            <frame name="display" src="E:/FINALS/Finals - Copy/frame/frame_ChickenInasal.html">
         </frameset>
     </frameset>
 
+     
     <script>
+        function goHome() {
+            if (window.top !== window.self) {
+                window.top.location.href = "frame.html";
+            } else {
+                window.location.href = "frame.html";
+            }
+        }
+
         function navigateTo(page) {
-            const frame = window.frames['display'];
-            if (frame) {
-                frame.location.href = page;
+           
+            if (window.top !== window.self) {
+                window.top.location.href = page;
             } else {
                 window.location.href = page;
             }
